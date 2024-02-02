@@ -41,3 +41,35 @@
         </div>
     </body>
 </html>
+<!-- 
+Crea el efecto de voltear una carta con backface-visibility
+Como punto inicial, necesitarás un elemento padre con dos elementos hijos, los cuales representarán la cara frontal y posterior de la carta. Te dejo este código para que empieces, aunque no es obligatorio, ya que se hablará de manera general en la explicación.
+
+Punto de partida
+Ahora sigamos los siguientes pasos:
+
+Al elemento padre agrega una posición relativa; y a los hijos, una posición absoluta. Esto provocará que los elementos hijos estén uno sobre el otro con respecto al eje Z dentro del elemento padre.
+.padre {
+    position: relative;
+}
+
+.hijos{
+    position: absolute;
+}
+Al elemento padre agrega la propiedad para que la transformación sea en 3D.
+.padre {
+    transform-style: preserve3d;
+}
+Al elemento que deba estar en la vista posterior, rótalo 180 grados sobre el eje X o Y dependiendo de lo que esperes. Observarás el efecto espejo, pero aún no está listo.
+.cara-posterior  {
+    transform: rotateY(180deg);
+}
+A los elementos hijos, agrega la propiedad backface-visibility con el valor hidden. Observarás que el contenido frontal y posterior se han situado como una tarjeta. Solo faltaría añadir un accionador para la animación.
+.hijos {
+    backface-visibility: hidden;
+}
+Al elemento padre, agrega un accionador para la animación que consista en rotar todo el contenido para mostrar la vista posterior al usuario.
+.padre:hover {
+  transform: rotateY(180deg);
+}
+Y listo, tienes el efecto de voltear una tarjeta mediante la propiedad backface-visibility. -->
