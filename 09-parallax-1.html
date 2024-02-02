@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Parallax</title>
+    </head>
+    <body>
+        <div class="parallax-container">
+            <div class="image__background">
+                <img src="./Background.png" alt="fondo de tazas">
+            </div>
+
+            <div class="image__middle">
+                <div class="card-one"></div>
+                <div class="card-two"></div>
+                <div class="card-three"></div>
+            </div>
+
+            <div class="image__foreground">
+                <img src="Alice.png" alt="Alicia en el pais de las maravillas">
+            </div>
+        </div>
+    </body>
+</html>
+
+<!-- El efecto de paralaje o parallax es una técnica en la que el fondo se mueve a una velocidad distinta que la del contenido. El resultado es un ligero efecto de profundidad, dejando ver partes que antes no podías visualizar. Te ayuda a sumergirte totalmente en el contenido, similar al efecto 3D.
+
+30 Webs con efecto Parallax
+https://www.awwwards.com/30-webs-con-efecto-parallax.html
+
+Estructura HTML para el efecto parallax
+Crea un contenedor con elementos hijos, estos serán las capas del contenedor para crear el efecto. En este caso, agrega tres elementos que representen la capa del fondo (background), del medio (middle) y de primer plano (foreground). Cada elemento debe tener una clase general y una que las diferencie.
+
+<div class="parallax-container">
+  <div class="image image_background"></div>
+  <div class="image image_middle"></div>
+  <div class="image image_foreground"></div>
+</div>
+En la capa del medio, crea tres elementos hijos que representen tres cartas.
+
+<div class="image image_middle">
+    <div class="card one"></div>
+    <div class="card two"></div>
+    <div class="card three"></div>
+</div>
+Para las demás capas, agrega una imagen de fondo y una en primer plano de Alicia. Te dejo los enlaces de las imagenes, utiliza una etiqueta de imagen con su respectivo atributo alt.
+
+* [Alicia](https://i.ibb.co/vJdbRkj/Alice.png)
+* [Imagen de fondo](https://i.ibb.co/jbLKgvX/Background.png)
+Y listo, ya tienes la estructura del efecto parallax, no importa si las imágenes están sobredimensionadas. Ahora utilizaremos CSS para dar estilos a las capas.
+
+Estructura HTML completa 
+https://codi.link/PGRpdiBjbGFzcz0icGFyYWxsYXgtY29udGFpbmVyIj4NCiAgPGRpdiBjbGFzcz0iaW1hZ2UgaW1hZ2VfYmFja2dyb3VuZCI+DQogICAgPGltZyBzcmM9Imh0dHBzOi8vaS5pYmIuY28vamJMS2d2WC9CYWNrZ3JvdW5kLnBuZyIgYWx0PSJiYWNrZ3JvdW5kIj4NCiAgPC9kaXY+DQogIDxkaXYgY2xhc3M9ImltYWdlIGltYWdlX21pZGRsZSI+DQogICAgPGRpdiBjbGFzcz0iY2FyZCBvbmUiPjwvZGl2Pg0KICAgIDxkaXYgY2xhc3M9ImNhcmQgdHdvIj48L2Rpdj4NCiAgICA8ZGl2IGNsYXNzPSJjYXJkIHRocmVlIj48L2Rpdj4NCiAgPC9kaXY+DQogIDxkaXYgY2xhc3M9ImltYWdlIGltYWdlX2ZvcmVncm91bmQiPg0KICAgIDxpbWcgc3JjPSJodHRwczovL2kuaWJiLmNvL3ZKZGJSa2ovQWxpY2UucG5nIiBhbHQ9IkFsaWNlIj4NCiAgPC9kaXY+DQo8L2Rpdj4NCg0K%7C%7C
+
+-->
