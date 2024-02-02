@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Transform Origin</title>
+        <style>
+            .circle {
+                background: #177fd4;
+                width: 150px;
+                height: 100px;
+                transform-origin: top right;
+                /*transform-origin: x y; valores top, right, bottom, left y center*/
+            }
+            
+            .circle:hover {
+                transform: rotate(-30deg);
+                /* transform: rotate(XYvalor); 
+                /* transform: rotate(Xvalor, Yvalor); 
+                transform: rotateX(valor);
+                transform: rotateY(valor);
+                Importante aclarar que solo puede estar X o Y, ya que si asignamos dos transform como propiedad, lo que hara el navegador sera sobreescribir y no se aplicaran las dos propiedades.
+                */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="circle"></div>
+    </body>
+</html>
