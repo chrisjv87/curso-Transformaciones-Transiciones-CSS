@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Transition Timing Function y Transition Delay</title>
+        <style>
+            .container {
+            }
+
+            .container:hover .circle {
+                transform: translate(200px);
+            }
+
+            .circle {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+
+            .one {
+                background: Purple;
+                transition: transform 5s cubic-bezier(.51, .72, .91, .26);
+                transition-delay: 2s;
+            }
+            .two {
+                background: Fuchsia;
+                transition: transform 5s linear;
+                transition-delay: 2s;
+            }
+            .three {
+                background: Navy;
+                transition: transform 5s ease;
+                transition-delay: 2s;
+            }
+            .four {
+                background: Teal;
+                transition: transform 5s ease-in;
+                transition-delay: 2s;
+            }
+            .five {
+                background: Green;
+                transition: transform 5s ease-out;
+                transition-delay: 2s;
+            }
+            .six {
+                background: Lime;
+                transition: transform 5s ease-in-out;
+                transition-delay: 2s;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="circle one"></div>
+            <div class="circle two"></div>
+            <div class="circle three"></div>
+            <div class="circle four"></div>
+            <div class="circle five"></div>
+            <div class="circle six"></div>
+        </div>
+    </body>
+</html>
+<!-- 
+Recapitulando, una timing function es la representación de la progresión en función del tiempo de cada ciclo de una animación. Representa la aceleración del elemento desde un punto A hasta un punto B.
+
+linear: El elemento se mueve a una aceleración constante.
+ease: Es el valor predeterminado si no se especifica. El elemento acelera inicialmente, pero presenta mucha desaceleración.
+ease-in: El elemento empieza lento pero termina rápido.
+ease-out: El elemento empieza rápido pero termina lento.
+ease-in-out: Es la combinación de ease-in y ease-out. El elemento empieza lento, a medida que avanza va acelerándose, pero termina lento.
+cubic-bezier: Se necesitan cuatro números, que representan dos puntos de control para formar la curva de aceleración deseada.
+Propiedades opcionales para una transición
+transition-timing-function: propiedad que establece una timing function para especificar una forma de aceleración de la transición.
+
+transition-delay: propiedad que establece un intervalo de tiempo desde la acción que desencadena la animación hasta su inicio.
+
+Ejemplo usando transition-timing-fuction.
+https://codi.link/PGRpdiBjbGFzcz0iY29udGFpbmVyIj4NCiAgPGRpdiBjbGFzcz0iY2lyY2xlIG9uZSI+bGluZWFyPC9kaXY+DQogIDxkaXYgY2xhc3M9ImNpcmNsZSB0d28iPmVhc2U8L2Rpdj4NCiAgPGRpdiBjbGFzcz0iY2lyY2xlIHRocmVlIj5lYXNlLWluPC9kaXY+DQogIDxkaXYgY2xhc3M9ImNpcmNsZSBmb3VyIj5lYXNlLW91dDwvZGl2Pg0KICA8ZGl2IGNsYXNzPSJjaXJjbGUgZml2ZSI+ZWFzZS1pbi1vdXQ8L2Rpdj4NCiAgPGRpdiBjbGFzcz0iY2lyY2xlIHNpeCI+Y3ViaWMtYmV6aWVyPC9kaXY+DQo8L2Rpdj4=%7CLmNvbnRhaW5lciB7DQogIGN1cnNvcjogcG9pbnRlcjsNCiAgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWYsICdDb3VyaWVyIE5ldycsIENvdXJpZXIsIG1vbm9zcGFjZTsNCiAgZm9udC13ZWlnaHQ6IGJvbGQ7DQogIHRleHQtYWxpZ246IGNlbnRlcjsNCn0NCg0KLmNvbnRhaW5lcjpob3ZlciAuY2lyY2xlIHsNCiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDIwMHB4KTsNCn0NCi5jaXJjbGUgew0KICB3aWR0aDogNzVweDsNCiAgaGVpZ2h0OiA3NXB4Ow0KICBib3JkZXItcmFkaXVzOiA1MCU7DQogIGRpc3BsYXk6IGdyaWQ7DQogIHBsYWNlLWNvbnRlbnQ6IGNlbnRlcjsNCiAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDFzOw0KfQ0KDQoub25lIHsNCiAgYmFja2dyb3VuZDpyZ2IoMTUwLCA2OCwgMTUwKTsNCiAgdHJhbnNpdGlvbi10aW1pbmctZnVuY3Rpb246IGxpbmVhcjsNCn0NCg0KLnR3byB7DQogIGJhY2tncm91bmQ6IE9yY2hpZDsNCiAgdHJhbnNpdGlvbi10aW1pbmctZnVuY3Rpb246IGVhc2U7DQp9DQoNCi50aHJlZSB7DQogIGJhY2tncm91bmQ6IFZpb2xldDsNCiAgdHJhbnNpdGlvbi10aW1pbmctZnVuY3Rpb246IGVhc2UtaW47DQp9DQoNCi5mb3VyIHsNCiAgYmFja2dyb3VuZDogUGx1bTsNCiAgdHJhbnNpdGlvbi10aW1pbmctZnVuY3Rpb246IGVhc2Utb3V0Ow0KfQ0KDQouZml2ZSB7DQogIGJhY2tncm91bmQ6IFRoaXN0bGU7DQogIHRyYW5zaXRpb24tdGltaW5nLWZ1bmN0aW9uOiBlYXNlLWluLW91dDsNCn0NCg0KLnNpeCB7DQogIGJhY2tncm91bmQ6IExhdmVuZGVyOw0KICB0cmFuc2l0aW9uLXRpbWluZy1mdW5jdGlvbjogY3ViaWMtYmV6aWVyKC41MSwuNzIsLjkxLC4yNik7DQp9%7C
+
+Ejemplo usando transition-delay.
+https://codi.link/PGgzPkVzcGVyYSAxIHNlZ3VuZG88L2gzPg0KPGRpdiBjbGFzcz0iY29udGFpbmVyIj4NCiAgPGRpdiBjbGFzcz0iY2lyY2xlIG9uZSI+bGluZWFyPC9kaXY+DQogIDxkaXYgY2xhc3M9ImNpcmNsZSB0d28iPmVhc2U8L2Rpdj4NCiAgPGRpdiBjbGFzcz0iY2lyY2xlIHRocmVlIj5lYXNlLWluPC9kaXY+DQogIDxkaXYgY2xhc3M9ImNpcmNsZSBmb3VyIj5lYXNlLW91dDwvZGl2Pg0KICA8ZGl2IGNsYXNzPSJjaXJjbGUgZml2ZSI+ZWFzZS1pbi1vdXQ8L2Rpdj4NCiAgPGRpdiBjbGFzcz0iY2lyY2xlIHNpeCI+Y3ViaWMtYmV6aWVyPC9kaXY+DQo8L2Rpdj4=%7CLmNvbnRhaW5lciB7DQogIGN1cnNvcjogcG9pbnRlcjsNCiAgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWYsICdDb3VyaWVyIE5ldycsIENvdXJpZXIsIG1vbm9zcGFjZTsNCiAgZm9udC13ZWlnaHQ6IGJvbGQ7DQogIHRleHQtYWxpZ246IGNlbnRlcjsNCn0NCg0KLmNvbnRhaW5lcjpob3ZlciAuY2lyY2xlIHsNCiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDIwMHB4KTsNCn0NCi5jaXJjbGUgew0KICB3aWR0aDogNzVweDsNCiAgaGVpZ2h0OiA3NXB4Ow0KICBib3JkZXItcmFkaXVzOiA1MCU7DQogIGRpc3BsYXk6IGdyaWQ7DQogIHBsYWNlLWNvbnRlbnQ6IGNlbnRlcjsNCiAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDFzOw0KICB0cmFuc2l0aW9uLWRlbGF5OiAxczsNCn0NCg0KLm9uZSB7DQogIGJhY2tncm91bmQ6cmdiKDE1MCwgNjgsIDE1MCk7DQogIHRyYW5zaXRpb24tdGltaW5nLWZ1bmN0aW9uOiBsaW5lYXI7DQp9DQoNCi50d28gew0KICBiYWNrZ3JvdW5kOiBPcmNoaWQ7DQogIHRyYW5zaXRpb24tdGltaW5nLWZ1bmN0aW9uOiBlYXNlOw0KfQ0KDQoudGhyZWUgew0KICBiYWNrZ3JvdW5kOiBWaW9sZXQ7DQogIHRyYW5zaXRpb24tdGltaW5nLWZ1bmN0aW9uOiBlYXNlLWluOw0KfQ0KDQouZm91ciB7DQogIGJhY2tncm91bmQ6IFBsdW07DQogIHRyYW5zaXRpb24tdGltaW5nLWZ1bmN0aW9uOiBlYXNlLW91dDsNCn0NCg0KLmZpdmUgew0KICBiYWNrZ3JvdW5kOiBUaGlzdGxlOw0KICB0cmFuc2l0aW9uLXRpbWluZy1mdW5jdGlvbjogZWFzZS1pbi1vdXQ7DQp9DQoNCi5zaXggew0KICBiYWNrZ3JvdW5kOiBMYXZlbmRlcjsNCiAgdHJhbnNpdGlvbi10aW1pbmctZnVuY3Rpb246IGN1YmljLWJlemllciguNTEsLjcyLC45MSwuMjYpOw0KfQ==%7C
+-->
