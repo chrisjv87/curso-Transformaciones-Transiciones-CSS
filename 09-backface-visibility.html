@@ -33,6 +33,28 @@
             .face.back {
                 background: blue;
             }
+
+            @media (prefers-reduced-motion: no-preference) {
+                .card {
+                transition: transform 5s;
+                }
+
+                .card:hover {
+                    transform: rotateY(180deg);
+                }
+
+                .face {
+                    backface-visibility: hidden; /*es para ocultar la tarjeta y acompañado en el elemento a rotar la propiedad de transfor: rotate()*/
+                }
+                
+                .face.front {
+                    transform: rotateY(180deg);
+                }
+                
+                .face.back {
+                    background: blue;
+                }
+            }
         </style>
     </head>
     <body>
@@ -73,4 +95,33 @@ Al elemento padre, agrega un accionador para la animación que consista en rotar
 .padre:hover {
   transform: rotateY(180deg);
 }
-Y listo, tienes el efecto de voltear una tarjeta mediante la propiedad backface-visibility. -->
+Y listo, tienes el efecto de voltear una tarjeta mediante la propiedad backface-visibility. 
+
+
+Las preferencias de movimiento reducido consisten en que el usuario notifica al sistema que prefiere eliminar o reemplazar las animaciones de la página web.
+
+Si tenemos animaciones que muestran un contenido específico después de un accionador de eventos (voltear la carta, mostrar algo, menús desplegables, etc.), esto provoca que el usuario no pueda verlo.
+
+Media query “prefers-reduced-motion”
+La media query prefers-reduced-motion si el usuario tiene alguna opción para eliminar o reemplazar animaciones. Los dos posibles valores que recibe son:
+
+no-preference: indica que el usuario no tiene preferencias para reducir las animaciones.
+reduce: indica que el usuario tiene preferencias para reducir las animaciones.
+@media (prefers-reduced-motion: no-preference) {
+    /* Código de animaciones */
+}
+
+/* Código sin animaciones */
+En esta media query nos permitirá colocar el código que tiene animaciones, y dejar afuera el código sin animaciones como forma de accesibilidad. De esta manera, la página web será más accesible a todo el mundo.
+
+Ejemplo de voltear la tarjeta de manera accesible
+Con animaciones.
+https://codi.link/PGRpdiBjbGFzcz0iY29udGFpbmVyIj4NCiAgPGRpdiBjbGFzcz0iZnJvbnQiPlNlw7HDoWxhbWU8L2Rpdj4NCiAgPGRpdiBjbGFzcz0iYmFjayI+8J+krzwvZGl2Pg0KPC9kaXY+DQoNCg==%7CaHRtbCwgYm9keXsNCiAgcGFkZGluZzogMDsNCiAgbWFyZ2luOiAwOw0KICBoZWlnaHQ6IDEwMHZoOw0KICBkaXNwbGF5OiBncmlkOw0KICBwbGFjZS1jb250ZW50OiBjZW50ZXI7DQogIGZvbnQtc2l6ZTogMS41cmVtOw0KfQ0KDQouY29udGFpbmVyew0KICB3aWR0aDogMjAwcHg7DQogIGhlaWdodDogMjAwcHg7DQogIGN1cnNvcjogcG9pbnRlcjsNCiAgcG9zaXRpb246IHJlbGF0aXZlOw0KICB0cmFuc2Zvcm0tc3R5bGU6IHByZXNlcnZlLTNkOw0KICB0cmFuc2l0aW9uOiBhbGwgMnM7DQoNCn0NCg0KLmNvbnRhaW5lciBkaXZ7DQogIHdpZHRoOiAxMDAlOw0KICBoZWlnaHQ6IDEwMCU7DQogIGRpc3BsYXk6IGdyaWQ7DQogIHBsYWNlLWNvbnRlbnQ6IGNlbnRlcjsNCiAgcG9zaXRpb246IGFic29sdXRlOw0KICBiYWNrZmFjZS12aXNpYmlsaXR5OiBoaWRkZW47DQp9DQoNCi5mcm9udHsNCiAgYmFja2dyb3VuZC1jb2xvcjogYXF1YTsNCn0NCg0KLmJhY2t7DQogIGJhY2tncm91bmQtY29sb3I6IGdyZXk7DQogIHRyYW5zZm9ybTogcm90YXRlWSgxODBkZWcpOw0KfQ0KDQouY29udGFpbmVyOmhvdmVyew0KICB0cmFuc2Zvcm06IHJvdGF0ZVkoMTgwZGVnKTsNCn0NCg0KDQo=%7C
+
+Sin animaciones, usando opacity.
+https://codi.link/PGRpdiBjbGFzcz0iY29udGFpbmVyIj4NCiAgPGRpdiBjbGFzcz0iZnJvbnQiPlNlw7HDoWxhbWU8L2Rpdj4NCiAgPGRpdiBjbGFzcz0iYmFjayI+8J+krzwvZGl2Pg0KPC9kaXY+DQoNCg==%7CaHRtbCwgYm9keXsNCiAgcGFkZGluZzogMDsNCiAgbWFyZ2luOiAwOw0KICBoZWlnaHQ6IDEwMHZoOw0KICBkaXNwbGF5OiBncmlkOw0KICBwbGFjZS1jb250ZW50OiBjZW50ZXI7DQogIGZvbnQtc2l6ZTogMS41cmVtOw0KfQ0KDQouY29udGFpbmVyew0KICB3aWR0aDogMjAwcHg7DQogIGhlaWdodDogMjAwcHg7DQogIGN1cnNvcjogcG9pbnRlcjsNCiAgcG9zaXRpb246IHJlbGF0aXZlOw0KDQp9DQoNCi5jb250YWluZXIgZGl2ew0KICB3aWR0aDogMTAwJTsNCiAgaGVpZ2h0OiAxMDAlOw0KICBkaXNwbGF5OiBncmlkOw0KICBwbGFjZS1jb250ZW50OiBjZW50ZXI7DQogIHBvc2l0aW9uOiBhYnNvbHV0ZTsNCn0NCg0KLmZyb250ew0KICBiYWNrZ3JvdW5kLWNvbG9yOiBhcXVhOw0KfQ0KDQouYmFja3sNCiAgYmFja2dyb3VuZC1jb2xvcjogZ3JleTsNCiAgLyogUHJvcGllYWRhZCBhZ3JlZ2FkYSAqLw0KICBvcGFjaXR5OiAwOw0KfQ0KDQoNCg0KLmNvbnRhaW5lcjpob3ZlciAuYmFja3sNCiAgLyogUHJvcGllYWRhZCBhZ3JlZ2FkYSAqLw0KICBvcGFjaXR5OiAxOw0KfQ0KDQoNCg0K%7C
+
+Ejemplo usando la media query “prefers-reduced-motion”.
+https://codi.link/PGRpdiBjbGFzcz0iY29udGFpbmVyIj4NCiAgPGRpdiBjbGFzcz0iZnJvbnQiPlNlw7HDoWxhbWU8L2Rpdj4NCiAgPGRpdiBjbGFzcz0iYmFjayI+8J+krzwvZGl2Pg0KPC9kaXY+DQoNCg==%7CaHRtbCwgYm9keXsNCiAgcGFkZGluZzogMDsNCiAgbWFyZ2luOiAwOw0KICBoZWlnaHQ6IDEwMHZoOw0KICBkaXNwbGF5OiBncmlkOw0KICBwbGFjZS1jb250ZW50OiBjZW50ZXI7DQogIGZvbnQtc2l6ZTogMS41cmVtOw0KfQ0KDQouY29udGFpbmVyew0KICB3aWR0aDogMjAwcHg7DQogIGhlaWdodDogMjAwcHg7DQogIGN1cnNvcjogcG9pbnRlcjsNCiAgcG9zaXRpb246IHJlbGF0aXZlOw0KDQp9DQoNCi5jb250YWluZXIgZGl2ew0KICB3aWR0aDogMTAwJTsNCiAgaGVpZ2h0OiAxMDAlOw0KICBkaXNwbGF5OiBncmlkOw0KICBwbGFjZS1jb250ZW50OiBjZW50ZXI7DQogIHBvc2l0aW9uOiBhYnNvbHV0ZTsNCn0NCg0KLmZyb250ew0KICBiYWNrZ3JvdW5kLWNvbG9yOiBhcXVhOw0KfQ0KDQouYmFja3sNCiAgYmFja2dyb3VuZC1jb2xvcjogZ3JleTsNCiAgb3BhY2l0eTogMDsNCn0NCg0KDQoNCi5jb250YWluZXI6aG92ZXIgLmJhY2t7DQogIC8qIFByb3BpZWFkYWQgYWdyZWdhZGEgKi8NCiAgb3BhY2l0eTogMTsNCn0NCg0KQG1lZGlhIChwcmVmZXJzLXJlZHVjZWQtbW90aW9uOiBuby1wcmVmZXJlbmNlKSB7DQoNCg0KLmNvbnRhaW5lcnsNCiAgdHJhbnNmb3JtLXN0eWxlOiBwcmVzZXJ2ZS0zZDsNCiAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDFzOw0KDQp9DQoNCi5jb250YWluZXIgZGl2ew0KICBiYWNrZmFjZS12aXNpYmlsaXR5OiBoaWRkZW47DQp9DQoNCg0KLmJhY2t7DQogIHRyYW5zZm9ybTogcm90YXRlWSgxODBkZWcpOw0KICBvcGFjaXR5OiAxOw0KDQp9DQoNCi5jb250YWluZXI6aG92ZXJ7DQogIHRyYW5zZm9ybTogcm90YXRlWSgxODBkZWcpOw0KfQ0KDQoNCn0NCg0KDQo=%7C
+
+-->
