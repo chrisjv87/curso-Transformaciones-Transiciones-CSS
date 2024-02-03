@@ -4,20 +4,86 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Parallax</title>
+        <style>
+
+            body {
+                margin: 0;
+            }
+            .parallax-container {
+                width: 100vw;
+                height: 100vh;
+                perspective: 8px;
+                perspective-origin: 50%;
+                overflow-x: hidden;
+                overflow-y: scroll;
+                position: relative;
+            }
+
+            .image {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                transform: 0 50%;
+            }
+
+            .image__background {
+                height: auto;
+                width: 100%;
+                transform: translateZ(0px) scale(1);
+                transform-origin: 0 50%;
+            }
+
+            .image__middle {
+                height: 100%;
+                width: 100%;
+                transform: translateZ(5px) scale(0.375);
+                transform-origin: 50%;
+            }
+
+            .image__foreground {
+                transform: translateZ(2px) scale(0.75);
+                transform-origin: top;
+            }
+
+            .card {
+                background: white;
+                border-radius: 8px;
+                width: 80px;
+                height: 100px;
+                position: absolute;
+                transform: rotate(-20px);
+            }
+             .one {
+                left: 30%;
+                top: 400px;
+             }
+
+             .two {
+                right: 20%;
+                top: 400px;
+             }
+
+             .three {
+                right: 20%;
+                bottom: -1000px;
+             }
+
+        </style>
     </head>
     <body>
         <div class="parallax-container">
-            <div class="image__background">
+            <div class="image image__background">
                 <img src="./Background.png" alt="fondo de tazas">
             </div>
 
-            <div class="image__middle">
-                <div class="card-one"></div>
-                <div class="card-two"></div>
-                <div class="card-three"></div>
+            <div class="image image__middle">
+                <div class="card one"></div>
+                <div class="card two"></div>
+                <div class="card three"></div>
             </div>
 
-            <div class="image__foreground">
+            <div class="image image__foreground">
                 <img src="Alice.png" alt="Alicia en el pais de las maravillas">
             </div>
         </div>
@@ -51,6 +117,99 @@ Para las demás capas, agrega una imagen de fondo y una en primer plano de Alici
 Y listo, ya tienes la estructura del efecto parallax, no importa si las imágenes están sobredimensionadas. Ahora utilizaremos CSS para dar estilos a las capas.
 
 Estructura HTML completa 
-https://codi.link/PGRpdiBjbGFzcz0icGFyYWxsYXgtY29udGFpbmVyIj4NCiAgPGRpdiBjbGFzcz0iaW1hZ2UgaW1hZ2VfYmFja2dyb3VuZCI+DQogICAgPGltZyBzcmM9Imh0dHBzOi8vaS5pYmIuY28vamJMS2d2WC9CYWNrZ3JvdW5kLnBuZyIgYWx0PSJiYWNrZ3JvdW5kIj4NCiAgPC9kaXY+DQogIDxkaXYgY2xhc3M9ImltYWdlIGltYWdlX21pZGRsZSI+DQogICAgPGRpdiBjbGFzcz0iY2FyZCBvbmUiPjwvZGl2Pg0KICAgIDxkaXYgY2xhc3M9ImNhcmQgdHdvIj48L2Rpdj4NCiAgICA8ZGl2IGNsYXNzPSJjYXJkIHRocmVlIj48L2Rpdj4NCiAgPC9kaXY+DQogIDxkaXYgY2xhc3M9ImltYWdlIGltYWdlX2ZvcmVncm91bmQiPg0KICAgIDxpbWcgc3JjPSJodHRwczovL2kuaWJiLmNvL3ZKZGJSa2ovQWxpY2UucG5nIiBhbHQ9IkFsaWNlIj4NCiAgPC9kaXY+DQo8L2Rpdj4NCg0K%7C%7C
+https://codi.link/PGRpdiBjbGFzcz0icGFyYWxsYXgtY29udGFpbmVyIj4NCiAgPGRpdiBjbGFzcz0iaW1hZ2UgaW1hZ2VfYmFja2dyb3VuZCI+DQogICAgPGltZyBzcmM9Imh0dHBzOi8vaS5pYmIuY28vamJMS2d2WC9CYWNrZ3JvdW5kLnBuZyIgYWx0PSJiYWNrZ3JvdW5kIj4NCiAgPC9kaXY+DQogIDxkaXYgY2xhc3M9ImltYWdlIGltYWdlX21pZGRsZSI+DQogICAgPGRpdiBjbGFzcz0iY2FyZCBvbmUiPjwvZGl2Pg0KICAgIDxkaXYgY2xhc3M9ImNhcmQgdHdvIj48L2Rpdj4NCiAgICA8ZGl2IGNsYXNzPSJjYXJkIHRocmVlIj48L2Rpdj4NCiAgPC9kaXY+DQogIDxkaXYgY2xhc3M9ImltYWdlIGltYWdlX2ZvcmVncm91bmQiPg0KICAgIDxpbWcgc3JjPSJodHRwczovL2kuaWJiLmNvL3ZKZGJSa2ovQWxpY2UucG5nIiBhbHQ9IkFsaWNlIj4NCiAgPC9kaXY+DQo8L2Rpdj4NCg0K%7C%7C 
 
+Ahora que ya está la estructura HTML para el efecto parallax, es momento de agregar los estilos CSS.
+
+Estilos CSS para el efecto parallax
+Quita el margin que está por defecto establecido por el navegador.
+
+body {
+  margin: 0;
+}
+Dimensiona las imágenes para que ocupen el espacio del contenedor.
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+En el elemento contenedor (parallax-container) agrega:
+
+Medidas para que ocupe el ancho y alto de la pantalla.
+Perspectiva de 8 píxeles (recuerda este valor).
+Posición relativa para que las capas puedan posicionarse con respecto al contenedor del efecto.
+En este caso, el exceso de contenido deberá estar oculto para el eje X y desplazable para el eje Y, pero lo puedes cambiar a tu gusto.
+.parallax-container {
+  width: 100%;
+  height: 100vh;
+  perspective: 8px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+}
+Agrega la posición absoluta a todos los elementos hijos o capas del efecto.
+
+.image{
+  position: absolute;
+} 
+Para las cada capa del efecto vamos a realizar lo siguiente:
+
+Medidas según sean necesarias.
+Trasladar la capa en eje Z, desde 0 hasta el valor de la perspectiva (8px).
+Escalar el elemento según su profundidad. Para calcular este valor utiliza la siguiente fórmula: $(perspective - translateZ) / perspective$, por ejemplo para la capa del medio, $(8-5)/8 = 0.375$.
+Modificar el origen según sea necesario.
+Algunos valores no son necesarios colocar, pero es recomendable tener un control del código y de las propiedades CSS.
+
+.image_background{
+  width: 100%;
+  height: auto;
+  transform: translateZ(0px) scale(1);
+  transform-origin: 0 50%;
+}
+
+.image_middle{
+  width: 100%;
+  height: 100%;
+  transform: translateZ(5px) scale(0.375);
+  transform-origin: 50%;
+}
+
+.image_foreground{
+  width: 100%;
+  height: auto;
+  transform: translateZ(2px) scale(0.75);
+  transform-origin: top;
+}
+Para las cartas de la segunda capa agrega dos estilos importantes: las medidas y la posición absoluta.
+
+.card {
+  width: 80px;
+  height: 100px;
+  position: absolute;
+  /* Estilos propios de la carta */
+  background: white;
+  border-radius: 8px;
+  transform: rotate(-20deg);
+}
+La posición sirve para posicionar cada carta como deseemos.
+
+/* Valores al azar, modificálos a tu gusto. */
+.one{
+  left: 30%;
+}
+
+.two{
+  right: 20%;
+  top: 200px;
+
+}
+
+.three{
+  right: 20%;
+  bottom: -700px;
+}
+¡Y listo! Ya está construido el efecto parallax.
+
+Efecto Parrallax
+https://codi.link/PGRpdiBjbGFzcz0icGFyYWxsYXgtY29udGFpbmVyIj4NCiAgPGRpdiBjbGFzcz0iaW1hZ2UgaW1hZ2VfYmFja2dyb3VuZCI+DQogICAgPGltZyBzcmM9Imh0dHBzOi8vaS5pYmIuY28vamJMS2d2WC9CYWNrZ3JvdW5kLnBuZyIgYWx0PSJiYWNrZ3JvdW5kIj4NCiAgPC9kaXY+DQogIDxkaXYgY2xhc3M9ImltYWdlIGltYWdlX21pZGRsZSI+DQogICAgPGRpdiBjbGFzcz0iY2FyZCBvbmUiPjwvZGl2Pg0KICAgIDxkaXYgY2xhc3M9ImNhcmQgdHdvIj48L2Rpdj4NCiAgICA8ZGl2IGNsYXNzPSJjYXJkIHRocmVlIj48L2Rpdj4NCiAgPC9kaXY+DQogIDxkaXYgY2xhc3M9ImltYWdlIGltYWdlX2ZvcmVncm91bmQiPg0KICAgIDxpbWcgc3JjPSJodHRwczovL2kuaWJiLmNvL3ZKZGJSa2ovQWxpY2UucG5nIiBhbHQ9IkFsaWNlIj4NCiAgPC9kaXY+DQo8L2Rpdj4NCg0K%7CYm9keSB7DQogIG1hcmdpbjogMDsNCn0NCg0KaW1new0KICBtYXgtd2lkdGg6IDEwMCU7DQogIGhlaWdodDogYXV0bzsNCn0NCg0KLnBhcmFsbGF4LWNvbnRhaW5lciB7DQogIHdpZHRoOiAxMDAlOw0KICBoZWlnaHQ6IDEwMHZoOw0KICBwZXJzcGVjdGl2ZTogOHB4Ow0KICBvdmVyZmxvdy14OiBoaWRkZW47DQogIG92ZXJmbG93LXk6IHNjcm9sbDsNCiAgcG9zaXRpb246IHJlbGF0aXZlOw0KfQ0KDQouaW1hZ2V7DQogIHBvc2l0aW9uOiBhYnNvbHV0ZTsNCn0gDQoNCg0KLmltYWdlX2JhY2tncm91bmR7DQogIHdpZHRoOiAxMDAlOw0KICBoZWlnaHQ6IGF1dG87DQogIHRyYW5zZm9ybTogdHJhbnNsYXRlWigwcHgpIHNjYWxlKDEpOw0KICB0cmFuc2Zvcm0tb3JpZ2luOiAwIDUwJTsNCn0NCg0KLmltYWdlX21pZGRsZXsNCiAgd2lkdGg6IDEwMCU7DQogIGhlaWdodDogMTAwJTsNCiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVaKDVweCkgc2NhbGUoMC4zNzUpOw0KICB0cmFuc2Zvcm0tb3JpZ2luOiA1MCU7DQp9DQoNCi5pbWFnZV9mb3JlZ3JvdW5kew0KICB3aWR0aDogMTAwJTsNCiAgaGVpZ2h0OiBhdXRvOw0KICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVooMnB4KSBzY2FsZSgwLjc1KTsNCiAgdHJhbnNmb3JtLW9yaWdpbjogdG9wOw0KfQ0KDQouY2FyZCB7DQogIGJhY2tncm91bmQ6IHdoaXRlOw0KICBib3JkZXItcmFkaXVzOiA4cHg7DQogIHdpZHRoOiA4MHB4Ow0KICBoZWlnaHQ6IDEwMHB4Ow0KICBwb3NpdGlvbjogYWJzb2x1dGU7DQogIHRyYW5zZm9ybTogcm90YXRlKC0yMGRlZyk7DQp9DQoNCi8qIEFncmVnYSB0dXMgcHJvcGlvcyB2YWxvcmVzICovDQoNCi5vbmV7DQogIGxlZnQ6IDMwJTsNCn0NCg0KLnR3b3sNCiAgcmlnaHQ6IDIwJTsNCiAgdG9wOiAyMDBweDsNCg0KfQ0KDQoudGhyZWV7DQogIHJpZ2h0OiAyMCU7DQogIGJvdHRvbTogLTcwMHB4Ow0KfQ0KDQogDQo=%7C
 -->
