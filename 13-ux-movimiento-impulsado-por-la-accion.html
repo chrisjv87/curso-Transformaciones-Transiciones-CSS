@@ -23,3 +23,26 @@
         <div></div>
     </body>
 </html>
+<!-- 
+Los tips de UX son recomendaciones para que tus animaciones sean mejores para la experiencia de usuario. Estudiaremos tres, los cuales son:
+
+Movimiento impulsado por la acción.
+Tiempos de espera.
+Problemas de parpadeo.
+Movimiento impulsado por la acción
+Al momento de crear una transición, el tiempo del punto A al punto B es el mismo. El movimiento impulsado por la acción consiste en modificar los tiempos de la transición, para que el tiempo de regreso (de B a A) sea mayor, para que la animación repose y no exista un movimiento abrupto.
+
+Esto se consigue añadiendo la transición en el accionador de la animación y en el elemento, pero con diferentes tiempos. Ten en cuenta que la animación primero sucede con el evento.
+
+/* De A a B */
+selector:hover {
+    transition: transform 1s;
+}
+
+/* De B a A */
+selector {
+    transition: transform 1.5s;
+}
+Ejemplo empleando el movimiento impulsado por la acción. 
+https://codi.link/PGRpdiBjbGFzcz0iY29udGFpbmVyIj4NCiAgPGg0Pk3DoXMgbGVudG8gYWwgcmVncmVzbzwvaDQ+DQogIDxkaXYgY2xhc3M9ImNpcmNsZSBvbmUiPjwvZGl2Pg0KICA8aDQ+TcOhcyByw6FwaWRvIGFsIHJlZ3Jlc288L2g0Pg0KDQogIDxkaXYgY2xhc3M9ImNpcmNsZSB0d28iPjwvZGl2Pg0KICANCjwvZGl2Pg==%7CLmNvbnRhaW5lciB7DQogIGN1cnNvcjogcG9pbnRlcjsNCiAgZm9udC1mYW1pbHk6IHNhbnMtc2VyaWYsICdDb3VyaWVyIE5ldycsIENvdXJpZXIsIG1vbm9zcGFjZTsNCiAgZm9udC13ZWlnaHQ6IGJvbGQ7DQogIHRleHQtYWxpZ246IGNlbnRlcjsNCn0NCg0KLmNpcmNsZSB7DQogIHdpZHRoOiA3NXB4Ow0KICBoZWlnaHQ6IDc1cHg7DQogIGJvcmRlci1yYWRpdXM6IDUwJTsNCn0NCg0KLmNvbnRhaW5lcjpob3ZlciAuY2lyY2xlIHsNCiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDIwMHB4KTsNCiAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDFzIGxpbmVhcjsNCn0NCg0KLm9uZSB7DQogIGJhY2tncm91bmQ6cmdiKDE1MCwgNjgsIDE1MCk7DQogIHRyYW5zaXRpb246IHRyYW5zZm9ybSAxLjVzIGxpbmVhcjsNCn0NCg0KLnR3byB7DQogIGJhY2tncm91bmQ6IE9yY2hpZDsNCiAgdHJhbnNpdGlvbjogdHJhbnNmb3JtIDAuNXMgbGluZWFyOw0KfQ0K%7C
+-->

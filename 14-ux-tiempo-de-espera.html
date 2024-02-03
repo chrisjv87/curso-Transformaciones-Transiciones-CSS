@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tiempo de espera</title>
+        <style>
+            body {
+                margin: 0;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            .nav {
+                display: flex;
+            }
+
+            .nav li ul{
+                display: block;
+                opacity: 0;
+                position: absolute;
+                transition: opacity 3s;
+                transition-delay: 1s;
+            }
+
+            .nav li:hover > ul {
+                opacity: 1;
+                transition: opacity 3s;
+                transition-delay: 1s;
+            }
+
+            .nav li ul li{
+                position: relative;
+            }
+
+            .nav li ul li{
+                right: -100px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <ul class="nav">
+            <li>
+                <a href="/">Mujer</a>
+                <ul>
+                    <li><a href="/">Camisetas</a></li>
+                    <li><a href="/">Pantalones</a></li>
+                    <li>
+                        <a href="/">Shorts</a>
+                        <ul>
+                            <li><a href="/">Cortos</a></li>
+                            <li><a href="/">Largos</a></li>
+                            <li><a href="/">Transparentes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="/">Hombre</a></li>
+            <li><a href="/">Kids</a></li>
+        </ul>
+    </body>
+</html>
+
+<!-- 
+En algunos menús desplegables, intentas seleccionar una opción pero se cierra el menú y debes hacer el mismo hasta seleccionar lo que deseas.
+
+Los tiempos de espera solucionan este problema, se refiere a usar una duración entre el usuario deje de seleccionar el elemento y se cierre el menú. Usar tiempos de espera ayuda al usuario a no frustrarse con los menús.
+
+Utiliza la propiedad transition-delay para que los elementos esperen un tiempo determinado entre que el usuario deje de seleccionar el menú hasta que se cierre completamente.
+
+Ejemplo usando tiempos de espera en menús desplegables.
+https://codi.link/PHVsIGNsYXNzPSJuYXYiPg0KICA8bGk+PGEgaHJlZj0iIyI+TXVqZXI8L2E+DQogICAgPHVsPg0KICAgICAgPGxpPjxhIGhyZWY9IiMiPkNhbWlzZXRhczwvYT48L2xpPg0KICAgICAgPGxpPjxhIGhyZWY9IiMiPlBhbnRhbG9uZXM8L2E+PC9saT4NCiAgICAgIDxsaT48YSBocmVmPSIjIj5TaG9ydHM8L2E+DQogICAgICAgIDx1bD4NCiAgICAgICAgICA8bGk+PGEgaHJlZj0iIyI+Q29ydG9zPC9hPjwvbGk+DQogICAgICAgICAgPGxpPjxhIGhyZWY9IiMiPkxhcmdvczwvYT48L2xpPg0KICAgICAgICAgIDxsaT48YSBocmVmPSIjIj5UcmFuc3BhcmVudGVzPC9hPjwvbGk+DQogICAgICAgIDwvdWw+DQogICAgICA8L2xpPg0KICAgIDwvdWw+DQogIDwvbGk+DQogIDxsaT48YSBocmVmPSIjIj5Ib21icmU8L2E+DQogICAgPHVsPg0KICAgICAgPGxpPjxhIGhyZWY9IiMiPkNhbWlzZXRhczwvYT48L2xpPg0KICAgICAgPGxpPjxhIGhyZWY9IiMiPlBhbnRhbG9uZXM8L2E+PC9saT4NCiAgICAgIDxsaT48YSBocmVmPSIjIj5TaG9ydHM8L2E+DQogICAgICAgIDx1bD4NCiAgICAgICAgICA8bGk+PGEgaHJlZj0iIyI+Q29ydG9zPC9hPjwvbGk+DQogICAgICAgICAgPGxpPjxhIGhyZWY9IiMiPkxhcmdvczwvYT48L2xpPg0KICAgICAgICAgIDxsaT48YSBocmVmPSIjIj5UcmFuc3BhcmVudGVzPC9hPjwvbGk+DQogICAgICAgIDwvdWw+DQogICAgICA8L2xpPg0KICAgIDwvdWw+DQogIDwvbGk+DQogIDxsaT48YSBocmVmPSIjIj5OacOxb3M8L2E+DQogICAgPHVsPg0KICAgICAgPGxpPjxhIGhyZWY9IiMiPkNhbWlzZXRhczwvYT48L2xpPg0KICAgICAgPGxpPjxhIGhyZWY9IiMiPlBhbnRhbG9uZXM8L2E+PC9saT4NCiAgICAgIDxsaT48YSBocmVmPSIjIj5TaG9ydHM8L2E+DQogICAgICAgIDx1bD4NCiAgICAgICAgICA8bGk+PGEgaHJlZj0iIyI+Q29ydG9zPC9hPjwvbGk+DQogICAgICAgICAgPGxpPjxhIGhyZWY9IiMiPkxhcmdvczwvYT48L2xpPg0KICAgICAgICAgIDxsaT48YSBocmVmPSIjIj5UcmFuc3BhcmVudGVzPC9hPjwvbGk+DQogICAgICAgIDwvdWw+DQogICAgICA8L2xpPg0KICAgIDwvdWw+DQogIDwvbGk+DQo8L3VsPg==%7CYm9keSB7DQogIG1hcmdpbjogMDsNCn0NCg0KdWwgew0KICBsaXN0LXN0eWxlOiBub25lOw0KfQ0KDQpsaSB7DQogIG1hcmdpbjogMXJlbSAwOw0KfQ0KDQphIHsNCiAgdGV4dC1kZWNvcmF0aW9uOiBub25lOw0KfQ0KDQoubmF2IHsNCiAgd2lkdGg6IDkwdnc7DQogIGRpc3BsYXk6IGZsZXg7DQogIGp1c3RpZnktY29udGVudDogc3BhY2UtYXJvdW5kOw0KfQ0KDQoubmF2IGxpIHVsIHsNCiAgZGlzcGxheTogYmxvY2s7DQogIG9wYWNpdHk6IDA7DQogIHBvc2l0aW9uOiBhYnNvbHV0ZTsNCiAgdHJhbnNpdGlvbjogb3BhY2l0eSA0MDBtczsNCiAgdHJhbnNpdGlvbi1kZWxheTogMzAwbXM7DQp9DQoNCi5uYXYgbGk6aG92ZXIgPiB1bCB7DQogIG9wYWNpdHk6IDE7DQogIHRyYW5zaXRpb246IG9wYWNpdHkgNDAwbXM7DQogIHRyYW5zaXRpb24tZGVsYXk6IDMwMG1zOw0KfQ0KDQoubmF2IGxpIHVsIGxpIHsNCiAgcG9zaXRpb246IHJlbGF0aXZlOw0KfQ0KDQoubmF2IGxpIHVsIGxpIHsNCiAgcmlnaHQ6IDMwcHg7DQp9DQoNCg0K%7C
+
+El ejemplo no es perfecto, usa tus conocimientos de CSS para crear tu propio menú desplegable con tiempos de espera. ¡Comparte tu trabajo en la sección de aportes! -->
