@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Problemas de parpadeo</title>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background: green;
+                border-radius: 50%;
+                transition: transform 5s;
+            }
+
+            .container:hover .item {
+                transform: translateY(250px);
+            }
+
+            .item {
+                background: hotpink;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item"></div>
+        </div>
+    </body>
+</html>
+
+<!-- El problema del parpadeo sucede cuando un accionador no se encuentra en el lugar donde debería por la transformación. Por ejemplo, al realizar una animación pasa lo siguiente:
+
+Al mover el cursor sobre un elemento se traslada hacia la izquierda.
+Al trasladarse, deja de estar el cursor sobre el elemento, por lo que vuelve a su posición inicial.
+Al estar en su posición inicial, el cursor está sobre el elemento, entonces accionará nuevamente la transformación.
+La animación entró en un ciclo que se observará como un parpadeo, porque las transiciones entre hover y no hover son rápidas.
+
+/* Mal */
+div {
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+}
+
+div:hover {
+  transform: translateX(45px);
+}
+Ejemplo de parpadeo.
+¿Cómo solucionar este problema?
+Para solucionar el problema de parpadeo, coloca el elemento que se transformará dentro de un contenedor. Después, utiliza el elemento contenedor como el accionador de la transformación del elemento. De esta manera, siempre se estará haciendo hover en el sitio adecuado sin importar que el elemento cambie.
+
+/* Bien */
+/* Elemento contenedor */
+.container {
+  width: 100px;
+  height: 100px;
+}
+
+/* Elemento a transformar */
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+}
+
+/* Trigger */ 
+.container:hover .item {
+  transform: translateX(45px);
+}
+Ejemplo para solucionar el problema del parpadeo.
+https://codi.link/PGgzPk11ZXZlIGVsIGN1cnNvciBwb3IgZGViYWpvIGRlbCBwdW50bzwvaDM+DQo8ZGl2IGNsYXNzPSJjb250YWluZXIiPg0KICA8ZGl2IGNsYXNzPSJpdGVtIj48L2Rpdj4NCjwvZGl2Pg==%7CLyogRWxlbWVudG8gY29udGVuZWRvciAqLw0KLmNvbnRhaW5lciB7DQogIHdpZHRoOiAxMDBweDsNCiAgaGVpZ2h0OiAxMDBweDsNCiAgYm9yZGVyOiAxcHggZGFzaGVkIGJsYWNrOw0KICBjdXJzb3I6IHBvaW50ZXI7DQoNCn0NCg0KLyogRWxlbWVudG8gYSB0cmFuc2Zvcm1hciAqLw0KLml0ZW0gew0KICB3aWR0aDogMTAwcHg7DQogIGhlaWdodDogMTAwcHg7DQogIGJhY2tncm91bmQtY29sb3I6IHB1cnBsZTsNCiAgb3BhY2l0eTogMC44Ow0KfQ0KDQovKiBUcmlnZ2VyICovIA0KDQouY29udGFpbmVyOmhvdmVyIC5pdGVtIHsNCiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDQ1cHgpOw0KfQ0KDQpoMzo6YmVmb3Jlew0KICBjb250ZW50OiAiIjsNCiAgZGlzcGxheTogYmxvY2s7DQogIHdpZHRoOiAxMHB4Ow0KICBoZWlnaHQ6IDEwcHg7DQogIGJhY2tncm91bmQtY29sb3I6IHJlZDsNCiAgYm9yZGVyLXJhZGl1czogNTAlOw0KICBwb3NpdGlvbjogYWJzb2x1dGU7DQogIHRvcDogNTBweDsNCn0NCg0KDQo=%7C -->
