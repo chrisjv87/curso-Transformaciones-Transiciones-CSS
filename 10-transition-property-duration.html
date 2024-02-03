@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Transition Property y Transition Duration</title>
+        <style>
+            .container {
+                width: 400px;
+                height: 100px;
+                background: hotpink;
+                display: flex;
+                justify-content: space-between;
+                margin: 30px;
+            }
+
+            .container:hover .box {
+                transform: scale(1.2);
+                border: 5px solid red;
+            }
+
+            .box {
+                width: 100px;
+                height: 100px;
+            }
+
+            .box1 {
+                background: greenyellow;
+                transition: transform 1s;
+                transition: border 5s;
+                /* transition: [property] [duration] [timing-function] [delay]; */
+            }
+            .box2 {
+                background: blueviolet;
+                transition: transform 2s;
+                transition: border 5s;
+
+            }
+            .box3 {
+                background: lightseagreen;
+                transition: transform 3s;
+                transition: border 5s;
+
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box box1"></div>
+            <div class="box box2"></div>
+            <div class="box box3"></div>
+        </div>
+    </body>
+</html>
+
+<!-- 
+Recapitulando, las transformaciones ocurren instantáneamente, sin embargo, estos cambios son no permiten crear una animación. La propiedad transition de CSS sirve para agregar un intervalo de tiempo a un elemento HTML para visualizar los cambios de una transformación.
+
+transition: [property] [duration] [timing-function] [delay];
+transition-property (obligatoria)
+transition-duration (obligatoria)
+transition-timing-function (opcional)
+transition-delay (opcional)
+Propiedades obligatorias para una transición
+transition-property: esta propiedad sirve para especificar el elemento HTML de la transición. Si la transición es para todos los elementos, su valor es all.
+transition-duration: esta propiedad sirve para agregar un intervalo de tiempo en segundos o milisegundos (1s = 1000ms).
+selector {
+    transition: transform 100ms;
+    transition: all 2s;
+}
+Ejemplo sin transiciones. -->
