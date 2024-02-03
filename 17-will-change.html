@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Will Change</title>
+        <style>
+            button {
+                width: 100px;
+                height: 60px;
+                background: blue;;
+            }
+
+            .better {
+                will-change: transform;
+                transition: transform 1s;
+            }
+
+            .better:hover {
+                transform: translateY(100px);
+            }
+
+            .worst {
+                will-change: margin-top;
+                transition: margin-top 1s;
+            }
+
+            .worst:hover {
+                margin-top: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <button class="better"></button>
+            <button class="worst"></button>
+        </div>
+    </body>
+</html>
+
+<!-- La aceleración por hardware permite usar componentes específicos de tu ordenador para quitar trabajo al procesador de tu dispositivo. Uno de estos componentes puede ser una tarjeta gráfica, que puede usarse para renderizar o mostrar el contenido del navegador en tu pantalla.
+
+Propiedades al animar
+En la clase anterior, aprendiste que existen propiedades que se deben animar y otras que no, esto se debe a un proceso de renderizado, este proceso consta de varios pasos: JavaScript, Style, Layout y Composite. Los tres últimos determinan si son adecuados para una animacion, con respecto al rendimiento. Las propiedades recomendables son opacity y transform, porque estas solo necesitan del último paso.
+
+Problemas de la aceleración por hardware
+Las imágenes no cargan correctamente.
+En los vídeos, la imagen o el sonido no se reproduce correctamente.
+Algunas partes del navegador aparecen mal diseñadas.
+Propiedad will-change
+La propiedad will-change de CSS sirve para anticipar y preparar los cambios de una transformación. Este tipo de optimizaciones puede aumentar la capacidad de respuesta de una página al realizar un trabajo potencialmente costoso en rendimiento.
+
+En el siguiente ejemplo, observa la transición con una propiedad no recomendable y luego agregando la propiedad will-change. ¿Notaste que la transición no es fluida? ¿Qué tanto tiembla el elemento?
+
+Ejemplo comparativo para usar “will-change”.
+https://codi.link/PGgyPkNvbG9jYSBlbCBjdXJzb3Igc29icmUgZWwgZWplcmNpY2lvPC9oMj4NCjxkaXYgY2xhc3M9ImNvbnRhaW5lciI+DQogIDxoMz5Qcm9waWVkYWQgdHJhbnNmb3JtIC0gUmVjb21lbmRhYmxlPC9oMz4NCjxkaXYgY2xhc3M9InRyYW5zZm9ybSI+PC9kaXY+DQo8aDM+UHJvcGllZGFkIG1hcmdpbiAtIE5vIHJlY29tZW5kYWJsZTwvaDM+DQo8ZGl2IGNsYXNzPSJtYXJnaW4iPjwvZGl2Pg0KPC9kaXY+%7CLmNvbnRhaW5lcnsNCiAgY3Vyc29yOiBwb2ludGVyOw0KfQ0KDQouY29udGFpbmVyIGRpdiB7DQogIHdpZHRoOiAxMDBweDsNCiAgaGVpZ2h0OiAxMDBweDsNCiAgYmFja2dyb3VuZC1jb2xvcjogcHVycGxlOw0KfQ0KDQoudHJhbnNmb3Jtew0KICAvKiB3aWxsLWNoYW5nZTogdHJhbnNmb3JtOyAqLw0KICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gMTBzOw0KfQ0KDQoubWFyZ2luew0KICAvKiB3aWxsLWNoYW5nZTogbWFyZ2luLWxlZnQ7ICovDQogIHRyYW5zaXRpb246IG1hcmdpbiAxMHM7DQp9DQoNCi5jb250YWluZXI6aG92ZXIgLnRyYW5zZm9ybXsNCiAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDIwMHB4KTsNCn0NCg0KLmNvbnRhaW5lcjpob3ZlciAubWFyZ2luew0KICBtYXJnaW4tbGVmdDogMjAwcHg7DQp9DQoNCg0KDQo=%7C
+
+El elemento con la propiedad no recomendable tiembla un poco porque la animación no es fluido y requiere de más recursos, impactando en el rendimiento de la animación.
+
+Documentación de will-change
+Documentación de will change - MDN
+https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
+
+will-change Propiedad css para anticipar y preparar los cambios
+https://escss.blogspot.com/2014/05/will-change-propiedad-css.html
+
+-->
